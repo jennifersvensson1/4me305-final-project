@@ -2,6 +2,12 @@
  @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
  
  /* general styling */
+
+ :root{
+  --primary: #4b4b4b;
+  --secondary: #0f7da8;
+}
+
 body {
   margin: 0;
   font-family: "Raleway";
@@ -40,7 +46,7 @@ body {
 
 .navbar li a {
   display: block;
-  color: rgb(44, 40, 40);
+  color: var(--primary);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -48,6 +54,14 @@ body {
 
 .navbar li a:hover {
   background-color: rgba(209, 209, 209, 0.644);
+}
+
+.navbar .signOut{
+  background-color: rgb(218, 108, 6);
+  border-radius: 12px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 10px;
 }
 
 .header{
@@ -63,8 +77,9 @@ body {
 }
 
 .header h2{
+  color: var(--primary);
   margin-top: 60px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 15px;
 }
 
@@ -77,10 +92,9 @@ img {
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  /* gap: 20px; */
+  row-gap: 40px;
   height: 100%;
   width: 100%;
-  /* background: pink; */
   place-items: center;
   
 }
@@ -108,9 +122,21 @@ img {
   place-self: center;
 }
 
+.btn-primary{
+  background-color: rgb(35, 166, 218);
+  margin-top: 20px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 3px 5px 7px rgba(210, 217, 223, 0.5); 
+}
+
+.btn-primary:hover {
+  background-color: rgba(35, 133, 212, 0.644);
+}
+
 .progress-bar{
-  background: var(--primary);
+  background: grey;
   margin-top: 20px;
   margin-bottom: 20px;
-  height: 20px;
+  height: 15px;
 }

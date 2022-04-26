@@ -17,6 +17,9 @@ export class Navbar extends Component {
             <li>
               <a href="#about">About</a>
             </li>
+            <li>
+              <a className="signOut" href="#signOut">Sign Out</a>
+            </li>
           </ul>
         </nav>
       </div>

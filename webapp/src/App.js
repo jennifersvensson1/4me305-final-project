@@ -1,4 +1,4 @@
-import './App.css';
+import React from "react";
 import Navbar from "./comps/Layout/Navbar";
 import Header from "./comps/Layout/Header";
 import Posts from "./comps/Posts";
@@ -11,8 +11,8 @@ function App() {
       
       <div className="container-main">
         <Header />
-        <Posts />
         <AddPost />
+        <Posts />
       </div>
     </div>
   );
