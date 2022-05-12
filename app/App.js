@@ -26,7 +26,7 @@ const PostNavigator = () => {
 
 const AppNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{tabBarShowLabel: false}}>
+    <Tab.Navigator screenOptions={{tabBarShowLabel: false, tabBarActiveTintColor: 'rgb(35, 166, 218)' }}>
       <Tab.Screen 
         name="Portfolio" 
         component={Portfolio} 

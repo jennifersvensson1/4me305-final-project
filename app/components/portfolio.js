@@ -18,8 +18,12 @@ export const Portfolio = () => {
                 ...doc.data(),
             }));
             setPosts(posts);
-            console.log(posts);
+            // console.log(posts);
         })
+
+        return () => {
+            setPosts([]);
+        }
     }, []);
 
     return (
@@ -48,9 +52,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     card: {
-        marginTop: 30, 
-        width: 320,
-        alignSelf: 'stretch',
+        marginTop: 20, 
+        marginBottom: 20,
+        width: 250,
         alignItems: 'center',
         justifyContent: 'center'
     },
