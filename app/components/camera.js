@@ -33,8 +33,7 @@ export const Camera = () => {
 
     // Navigates to upload page, sends captured pic as parameter
     function savePic() {
-        // nav.navigate('Upload', capturedPic);
-        nav.navigate('Upload');
+        nav.navigate('Upload', capturedPic);
     }
 
     // Renders the image preview
