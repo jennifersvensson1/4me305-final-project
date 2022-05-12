@@ -3,6 +3,7 @@ import { Timestamp, collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { projectStorage, projectFirestore } from "../firebase/firebaseConfig";
 import { toast } from "react-toastify";
+import { FirebaseError } from 'firebase/app';
 
 const AddPost = () => {
   const [formData, setFormData] = useState({
@@ -52,6 +53,7 @@ const AddPost = () => {
             title: formData.title,
             imageUrl: url,
             createdAt: Timestamp.now().toDate(),
+            location: new FirebaseError.firestore.GeoPoint(0, 0)
           })
             .then(() => {
               toast("Post added successfully", { type: "success" });

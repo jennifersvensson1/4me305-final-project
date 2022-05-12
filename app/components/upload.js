@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { Timestamp, collection, addDoc, GeoPoint } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { projectStorage, projectFirestore } from "../firebase/firebaseConfig";
 import { Ionicons } from '@expo/vector-icons'; // Icons from https://icons.expo.fyi/ 
@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons'; // Icons from https://icons.expo.
 import * as MediaLibrary from 'expo-media-library';
 import * as Location from 'expo-location';
 import { TextInput } from 'react-native-gesture-handler';
+import { FirebaseError } from 'firebase/app';
 
 // Initiates upload options
 export const Upload = (props) => {
@@ -33,7 +34,7 @@ export const Upload = (props) => {
 			}
 
 			let location = await Location.getCurrentPositionAsync({});
-			setCurrentLocation(location);
+			setCurrentLocation({ lat: location.coords.latitude, lon: location.coords.longitude });
 		})();
     }, []);
 
@@ -73,6 +74,7 @@ export const Upload = (props) => {
 						title: title,
 						imageUrl: url,
 						createdAt: Timestamp.now().toDate(),
+						location: new FirebaseError.firestore.GeoPoint(currentLocation.lat, currentLocation.lon)
 					})
 					.then(() => {
 						console.log("Post added successfully!");
