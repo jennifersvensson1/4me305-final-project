@@ -30,9 +30,7 @@ const Posts = () => {
 
   const MyMapComponent = () => {
     return (
-      <LoadScript 
-      // googleMapsApiKey="AIzaSyCIV1WJa_KN22TB4L3M0YNCbIdmAjxJk1E"
-      >
+      <LoadScript>
         <GoogleMap
           mapContainerStyle={{width: '900px', height: '600px'}}
           center={currentLocation}
