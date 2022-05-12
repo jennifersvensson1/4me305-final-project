@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Timestamp, collection, addDoc, GeoPoint } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -97,8 +97,14 @@ export const Upload = (props) => {
 
     return (
         <View style={styles.container}>
+			<Modal animationType="slide" transparent={true} visible={modalVisible} style={{margin: 0}}>
+				<View style={styles.modalView}>
+				<Text>{modalText}</Text>
+				<Button title="OK" onPress={() => setModalVisible(false)}></Button>
+				</View>
+			</Modal>
+
 			<Image style={{ width: props.route.params.width, height: props.route.params.height }} source={{ uri: props.route.params.uri}}></Image>
-			
 			<View style={styles.content}>
 				<Text style={styles.header}>Title:</Text>
 				<TextInput placeholder="Write your title here" style={styles.input} onChangeText={(t) => setTitle(t)}></TextInput>
@@ -156,5 +162,18 @@ const styles = StyleSheet.create({
 	btnText: {
 		fontSize: 16,
 		color: 'white'
+	},
+	modalView: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: 'whitesmoke',
+		shadowColor: '#000',
+		shadowOpacity: 0.25,
+		shadowOffset: {
+		  width: 0,
+		  height: 2
+		},
+		borderRadius: 10
 	}
   });
