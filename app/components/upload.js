@@ -9,7 +9,6 @@ import { Ionicons } from '@expo/vector-icons'; // Icons from https://icons.expo.
 import * as MediaLibrary from 'expo-media-library';
 import * as Location from 'expo-location';
 import { TextInput } from 'react-native-gesture-handler';
-import { FirebaseError } from 'firebase/app';
 
 // Initiates upload options
 export const Upload = (props) => {
@@ -74,7 +73,7 @@ export const Upload = (props) => {
 						title: title,
 						imageUrl: url,
 						createdAt: Timestamp.now().toDate(),
-						location: new FirebaseError.firestore.GeoPoint(currentLocation.lat, currentLocation.lon)
+						location: new GeoPoint(currentLocation.lat, currentLocation.lon)
 					})
 					.then(() => {
 						console.log("Post added successfully!");

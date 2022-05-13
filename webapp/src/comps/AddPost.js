@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Timestamp, collection, addDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { Timestamp, collection, addDoc, GeoPoint } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { projectStorage, projectFirestore } from "../firebase/firebaseConfig";
 import { toast } from "react-toastify";
@@ -11,8 +11,16 @@ const AddPost = () => {
     image: "",
     createdAt: Timestamp.now().toDate(),
   });
-
+  const [currentLocation, setCurrentLocation] = useState({});
   const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        setCurrentLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude});
+      })
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -53,7 +61,7 @@ const AddPost = () => {
             title: formData.title,
             imageUrl: url,
             createdAt: Timestamp.now().toDate(),
-            location: new FirebaseError.firestore.GeoPoint(0, 0)
+            location: new GeoPoint(currentLocation.lat, currentLocation.lng)
           })
             .then(() => {
               toast("Post added successfully", { type: "success" });
