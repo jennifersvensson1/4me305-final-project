@@ -12,6 +12,7 @@ import { Upload } from './components/upload';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+// Navigator for camera and upload
 const PostNavigator = () => {
   return (
     <Stack.Navigator>
@@ -22,6 +23,7 @@ const PostNavigator = () => {
   );
 }
 
+// Tabnavigator for app
 const AppNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{tabBarShowLabel: false, tabBarActiveTintColor: 'rgb(35, 166, 218)' }}>

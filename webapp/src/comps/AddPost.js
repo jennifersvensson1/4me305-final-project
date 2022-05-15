@@ -3,8 +3,8 @@ import { Timestamp, collection, addDoc, GeoPoint } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { projectStorage, projectFirestore } from "../firebase/firebaseConfig";
 import { toast } from "react-toastify";
-import { FirebaseError } from 'firebase/app';
 
+// Initiates adding a new post
 const AddPost = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -22,14 +22,17 @@ const AddPost = () => {
     }
   }, []);
 
+  // Sets input text in formdata
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Sets uploaded image in formdata
   const handleImageChange = (e) => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
 
+  // Handles publish button and thereby adding the post
   const handlePublish = () => {
     if (!formData.title || !formData.image) {
       alert("Seems like you missed a field, please fill all of the fields");
@@ -99,4 +102,4 @@ const AddPost = () => {
   );
 };
 
-export default AddPost
+export default AddPost;

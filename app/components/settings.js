@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Initiates settings
 export const Settings = () => {
@@ -12,6 +12,7 @@ export const Settings = () => {
     );
   }
 
+// Styles the components
 const styles = StyleSheet.create({
     container: {
       flex: 1,

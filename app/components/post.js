@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -11,9 +11,6 @@ export const Post = () => {
         <TouchableOpacity style={styles.btn} onPress={() => { nav.navigate('Camera')}}>
           <Text style={styles.btnText}>Take picture</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity style={styles.btn} onPress={() => { nav.navigate('Audio')}}>
-          <Text style={styles.btnText}>Record sound</Text>
-        </TouchableOpacity> */}
       </View>
     );
   }

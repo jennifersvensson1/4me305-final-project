@@ -4,6 +4,7 @@ import { projectFirestore } from "../firebase/firebaseConfig";
 import DeletePost from "./DeletePost";
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
+// Loads and displays the posts in a list-form and on map
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [currentLocation, setCurrentLocation] = useState({lat: 0, lng: 0})
@@ -28,6 +29,7 @@ const Posts = () => {
     });
   }, []);
 
+  // Initiates map component
   const MyMapComponent = () => {
     return (
       <LoadScript 

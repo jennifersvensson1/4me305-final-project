@@ -4,23 +4,21 @@ import { toast } from "react-toastify";
 import { deleteDoc, doc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 
-//Function to delete post from the webpage
+// Deletes post from the webpage
 const DeletePost = ({id, imageUrl}) => {
-
-    const handleDelete = async () => {
-        if (window.confirm("Are you sure you want to delete this post?")) {
-          try {
-            await deleteDoc(doc(projectFirestore, "Posts", id));
-            toast("Post deleted successfully", { type: "success" });
-            const storageRef = ref(projectStorage, imageUrl);
-            await deleteObject(storageRef);
-          } catch (error) {
-            toast("Error deleting post", { type: "error" });
-            console.log(error);
-          }
+  const handleDelete = async () => {
+      if (window.confirm("Are you sure you want to delete this post?")) {
+        try {
+          await deleteDoc(doc(projectFirestore, "Posts", id));
+          toast("Post deleted successfully", { type: "success" });
+          const storageRef = ref(projectStorage, imageUrl);
+          await deleteObject(storageRef);
+        } catch (error) {
+          toast("Error deleting post", { type: "error" });
+          console.log(error);
         }
-    };
-
+      }
+  };
 
   return (
     <div>
@@ -29,4 +27,4 @@ const DeletePost = ({id, imageUrl}) => {
   )
 }
 
-export default DeletePost
+export default DeletePost;

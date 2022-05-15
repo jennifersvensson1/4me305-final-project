@@ -37,6 +37,7 @@ export const Upload = (props) => {
 		})();
     }, []);
 
+	// Uploads image to firebase
 	async function uploadImageAsync() {
 		const blob = await new Promise((resolve, reject) => {
 			const xhr = new XMLHttpRequest();
@@ -87,6 +88,7 @@ export const Upload = (props) => {
 		)
 	}
 
+	// Saves image to media library
 	async function saveImage() {
 		const asset = await MediaLibrary.createAssetAsync(props.route.params.uri);
 
@@ -121,6 +123,7 @@ export const Upload = (props) => {
     );
   }
 
+// Styles the components
 const styles = StyleSheet.create({
     container: {
 		flex: 1,

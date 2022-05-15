@@ -18,7 +18,6 @@ export const Portfolio = () => {
                 ...doc.data(),
             }));
             setPosts(posts);
-            // console.log(posts);
         })
 
         return () => {
@@ -44,6 +43,7 @@ export const Portfolio = () => {
     );
 }
 
+// Styles the components
 const styles = StyleSheet.create({
     container: {
       flex: 1,

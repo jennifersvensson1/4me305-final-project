@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Initiates title header
 const Title = () => {
   return (
     <div className="header">
