@@ -36,8 +36,8 @@ const Posts = () => {
           center={currentLocation}
           zoom={3}
         >
-          {posts.map(({location}) => (
-            <Marker position={{lat: location.latitude, lng: location.longitude}} />
+          {posts.map(({ id, location}) => (
+            <Marker position={{lat: location.latitude, lng: location.longitude}} key={id} />
           ))}
         </GoogleMap>
       </LoadScript>
@@ -55,7 +55,7 @@ const Posts = () => {
               <img src={imageUrl} alt="title" />
               <h2>{title}</h2>
               <p>{createdAt.toDate().toDateString()}</p>
-              <p>{location?.latitude}, {location?.longitude}</p>
+              <p>Latitude: {location?.latitude}, Longitude: {location?.longitude}</p>
               <DeletePost id={id} imageUrl={imageUrl} />
             </div>
           ))
