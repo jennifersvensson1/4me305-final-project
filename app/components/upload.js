@@ -35,6 +35,11 @@ export const Upload = (props) => {
 			let location = await Location.getCurrentPositionAsync({});
 			setCurrentLocation({ lat: location.coords.latitude, lon: location.coords.longitude });
 		})();
+
+		return () => {
+			setHasPermission(null);
+			setCurrentLocation({});
+		}
     }, []);
 
 	// Uploads image to firebase
