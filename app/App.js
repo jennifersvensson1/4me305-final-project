@@ -8,7 +8,6 @@ import { Portfolio } from './components/portfolio';
 import { Post } from './components/post';
 import { Settings } from './components/settings';
 import { Upload } from './components/upload';
-import { Audio } from './components/audio';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -18,7 +17,6 @@ const PostNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="Post" component={Post} options={{headerShown: false}}></Stack.Screen>
       <Stack.Screen name="Camera" component={Camera}></Stack.Screen>
-      <Stack.Screen name="Audio" component={Audio}></Stack.Screen>
       <Stack.Screen name="Upload" component={Upload}></Stack.Screen>
     </Stack.Navigator>
   );
