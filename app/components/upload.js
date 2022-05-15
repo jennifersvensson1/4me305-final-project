@@ -102,8 +102,7 @@ export const Upload = (props) => {
 				<Button title="OK" onPress={() => setModalVisible(false)}></Button>
 				</View>
 			</Modal>
-
-			<Image style={{ width: props.route.params.width, height: props.route.params.height }} source={{ uri: props.route.params.uri}}></Image>
+			
 			<View style={styles.content}>
 				<Text style={styles.header}>Title:</Text>
 				<TextInput placeholder="Write your title here" style={styles.input} onChangeText={(t) => setTitle(t)}></TextInput>
@@ -111,6 +110,8 @@ export const Upload = (props) => {
 					<Text style={styles.btnText}>Publish</Text>
 				</TouchableOpacity>
 			</View>
+
+			<Image style={{ width: 160, height: 280 }} source={{ uri: props.route.params.uri}}></Image>
 			
 			<TouchableOpacity style={styles.saveBtn} onPress={saveImage}>
 				<Ionicons name="download-outline" size={20} color={'white'}></Ionicons>
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     },
 	content: {
 		alignItems: 'center',
-		margin: 30
+		margin: 10
 	},
 	header: {
 		fontSize: 20,
@@ -157,6 +158,7 @@ const styles = StyleSheet.create({
 		padding: 10,
 		width: 130,
 		flexDirection: 'row',
+		margin: 10
 	},
 	btnText: {
 		fontSize: 16,
